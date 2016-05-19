@@ -80,9 +80,8 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) :
 
 		$mimes = array('application/vnd.ms-excel','text/plain','text/csv','text/tsv','application/csv');
 		
-		if ( $_POST['compatibility_csv_flag'] == '1' ) {
+		if ( $_POST['compatibility_csv_flag'] == '1' ) {	// If users click on "Add Compatibility CSV" button after select csv file
 			
-			// If users click on "Add Compatibility CSV" button after select csv file
 			$uploadedfile = $_FILES['compatibility_csv'];
 
 			// Validate Uploaded File Format
@@ -103,7 +102,7 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) :
 		
 			$file = fopen($movefile['file'],"r");
 
-			// Compatibility Header
+			// Get compatibility Header
 			$compatibility_names = fgetcsv( $file );
 			
 			while ( ! feof($file) ) {

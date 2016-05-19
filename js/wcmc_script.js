@@ -1,5 +1,7 @@
 jQuery(document).ready(function () {
+
 	jQuery("#post").attr("enctype", "multipart/form-data");
+	
 	// Reset Handler
 	jQuery("#reset_compatibility_csv").click( function () {
 		jQuery("#upload_compatibility").prop("disabled", false);
