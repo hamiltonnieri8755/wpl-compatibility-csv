@@ -58,7 +58,6 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) :
 	}
 
 	$wcmc = "";
-	//$wcmc = new WC_MetaBox_Compatibility( $post );
 
 	/**
 	 * Outputs the content of the meta box "WPL Compatibility CSV Uploader"
@@ -138,6 +137,11 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) :
 				// add to array
 				$compatible_applications[] = $compatible_app;
 			}
+
+			// remove Notes column
+			$notes_index = array_search('Notes', $compatibility_names);
+			unset( $compatibility_names[$notes_index] );
+
 			update_post_meta( $post_id, '_ebay_item_compatibility_list', $compatible_applications );
 			update_post_meta( $post_id, '_ebay_item_compatibility_names', $compatibility_names );
 		}
